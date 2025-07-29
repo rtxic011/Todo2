@@ -11,3 +11,10 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val splashScreenBackground = Color(146,204,255)
+
+val themered = Color(255,178,201)
+val themeyellow = Color(253,255,195)
+val themegreen = Color(153,255,182)
+val themeblue = Color(145,204,255)
+
+var themeColor = themeblue
