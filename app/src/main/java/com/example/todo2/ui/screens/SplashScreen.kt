@@ -28,15 +28,23 @@ import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
 import com.example.todo2.ui.theme.splashScreenBackground
 import com.example.todo2.R
+import com.example.todo2.ui.theme.themeColor
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
     LaunchedEffect(Unit) {
         delay(5000)
-        navController.navigate("Theme") {
-            popUpTo("splash") { inclusive = true }
+        if (themeColor == null) {
+            navController.navigate("Theme") {
+                popUpTo("splash") { inclusive = true }
+            }
         }
-    }
+        else {
+                navController.navigate("Task") {
+                    popUpTo("splash") { inclusive = true }
+                }
+            }
+        }
 //    Scaffold(
 //        content = { innerPadding ->
             Box(modifier = Modifier

@@ -17,4 +17,4 @@ val themeyellow = Color(253,255,195)
 val themegreen = Color(153,255,182)
 val themeblue = Color(145,204,255)
 
-var themeColor = themeblue
+var themeColor: Color? = null
