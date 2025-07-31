@@ -36,12 +36,12 @@ fun SplashScreen(navController: NavHostController) {
         delay(5000)
         if (themeColor == null) {
             navController.navigate("Theme") {
-                popUpTo("splash") { inclusive = true }
+                popUpTo("Splash") { inclusive = true }
             }
         }
         else {
                 navController.navigate("Task") {
-                    popUpTo("splash") { inclusive = true }
+                    popUpTo("Splash") { inclusive = true }
                 }
             }
         }

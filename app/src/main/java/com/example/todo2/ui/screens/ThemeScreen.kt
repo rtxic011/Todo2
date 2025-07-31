@@ -32,6 +32,7 @@ import com.example.todo2.ui.theme.themeyellow
 import com.example.todo2.ui.theme.themegreen
 import com.example.todo2.ui.theme.themeblue
 import com.example.todo2.ui.theme.themeColor
+import com.example.todo2.ui.theme.splashScreenBackground
 
 
 //var selectedColor = themeblue
@@ -134,7 +135,7 @@ fun choosetheme (
             .align(Alignment.CenterHorizontally)
             .shadow(5.dp, shape = RoundedCornerShape(10.dp))
             .background(thisColor, shape = RoundedCornerShape(10.dp))
-            .clickable{ themeColor = thisColor  }
+            .clickable{ themeColor = thisColor; splashScreenBackground = thisColor; navController.navigate("Task") }
         ) {
             Text(text = "Open To do lists",
                 style = TextStyle(

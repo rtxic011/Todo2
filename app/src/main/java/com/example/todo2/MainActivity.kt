@@ -33,8 +33,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyAppNavHost(navController: NavHostController) {
-    NavHost(navController, startDestination = "splash") {
-        composable("splash") {
+    NavHost(navController, startDestination = "Task") {
+        composable("Splash") {
             SplashScreen(navController)
         }
         composable("Theme") {
