@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -30,6 +31,11 @@ import androidx.navigation.NavHostController
 import com.example.todo2.ui.theme.themeColor
 import com.example.todo2.ui.theme.themeblue
 import com.example.todo2.R
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+
+
 
 
 @Composable
@@ -80,7 +86,9 @@ fun TaskScreen (navController: NavHostController) {
 fun examplebox(
     headColor: Color?
 ) {
-    Column (modifier = Modifier
+    val dateText = remember { getToday() }
+
+    Column(modifier = Modifier
         .fillMaxWidth()
         .height(154.dp)
     ) {
@@ -89,6 +97,7 @@ fun examplebox(
             .width(350.dp)
             .height(135.dp)
             .align(Alignment.CenterHorizontally)
+//            .align(Alignment.Center)
             .shadow(8.dp, RoundedCornerShape(18.dp))
             .background(Color.White, shape = RoundedCornerShape(18.dp))
         ){
@@ -131,8 +140,27 @@ fun examplebox(
                     )
                 )
             }
+            Spacer(modifier = Modifier.height(15.dp))
 
+            Box(modifier = Modifier
+                .width(340.dp) ) {
+//                Spacer(modifier = Modifier .width(60.dp))
 
+                Text( text = dateText,
+                    style = TextStyle(
+                        Color.Gray,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                    ), modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                )
+            }
         }
     }
+}
+
+fun getToday(): String {
+    val today = LocalDate.now()
+    val nowdate = DateTimeFormatter.ofPattern("EEE dd LLL yyyy", Locale.ENGLISH)
+    return "Today · ${today.format(nowdate)}"
 }
